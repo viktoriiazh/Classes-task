@@ -5,7 +5,6 @@ public class Calculate {
         return quantity * price;
     }
 
-    // Метод рассчета налога
     public static double calculateTax(double income, double taxRate) {
         return income * taxRate / 100;
     }

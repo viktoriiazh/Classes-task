@@ -1,23 +1,26 @@
 package app;
+
 import java.util.Scanner;
+
+import utils.Constants;
+
 public class ProductInfo {
 
-    static String name; // наименование товара
-    static int quantity; // количество товара
-    static double price; // цена товара
-    static double taxRate; // ставка налога, равна 5%
-    static Product product; // переменная типа Product
-    static double income; // доход
-    static double tax; // налог
+    static String name;
+    static int quantity;
+    static double price;
+    static double taxRate;
+    static Product product;
+    static double income;
+    static double tax;
 
-    public static void main(String[] args) {
 
-        // Вызов метода инициализации переменных
+    public static void Launch() {
+
         doInputs();
 
         product = new Product();
-        // Установите значения через setters.
-        // Здесь ...
+
         product.setName(name);
         product.setPrice(price);
         product.setQuantity(quantity);
@@ -25,26 +28,29 @@ public class ProductInfo {
         income = Calculate.calculateIncome(product.getQuantity(), product.getPrice());
         tax = Calculate.calculateTax(income, taxRate);
 
-        // Вызов метода вывода данных
+        System.out.println(Constants.LINE);
         showData();
     }
 
-    // Метод инициализации переменных
-    private static void doInputs() {
-        // Инициализируйте переменные здесь
+    public static void doInputs() {
+
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println(Constants.SCAN_NAME);
         name = scanner.nextLine();
+
+        System.out.println(Constants.SCAN_QUANTITY);
         quantity = scanner.nextInt();
+
+        System.out.println(Constants.SCAN_PRICE);
         price = scanner.nextDouble();
+
+        System.out.println(Constants.SCAN_TEX_RATE);
         taxRate = scanner.nextDouble();
     }
 
-    //  Метод рассчета дохода
-
-
-    // Метод вывода данных
     private static void showData() {
-        System.out.printf("%s%nSold (pcs.): %d%nIncome (USD): %.2f%nTax (USD): %.2f",
+        System.out.printf(Constants.PROD_INFO,
                 product.getName(), product.getQuantity(), income, tax);
     }
 }

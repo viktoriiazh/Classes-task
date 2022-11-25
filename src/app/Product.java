@@ -1,15 +1,13 @@
 package app;
 
-// Класс-модель товара
+
 public class Product {
 
-    private String name; // наименование товара
-    private int quantity; // количество товара
+    private String name;
+    private int quantity;
     private double price;
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
     public void setName(String name) {
         this.name = name;
@@ -30,9 +28,6 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
-    // Задекларируйте переменные, которые отражают
-    // наименование, количество и цену товара.
-    // Используйте самый строгий доступ к переменным.
-    // Добавьте getters и setters.
+
 
 }
